@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Museo - Your Book</title>
+  <style>
+    /* --- Background and overlay --- */
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-image: url('https://images.unsplash.com/photo-1534070185173-3609301c4256?auto=format&fit=crop&w=1950&q=80');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #f4f4f4;
+      line-height: 1.4;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.6);
+      z-index: -1;
+    }
+
+    /* --- Start Screen --- */
+    #startScreen {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      background: rgba(0,0,0,0.7);
+    }
+    #startScreen h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 10px #ffd700;
+    }
+    #startBtn {
+      padding: 1em 3em;
+      font-size: 1.5em;
+      cursor: pointer;
+      background: #ffd700;
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      box-shadow: 0 0 15px #ffd700;
+      transition: background 0.3s ease;
+    }
+    #startBtn:hover {
+      background: #ffc107;
+    }
+
+    /* --- Book Content --- */
+    #book {
+      max-width: 800px;
+      margin: 60px auto 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 50px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+      color: #eee;
+	  min-height: auto !important;   /* FIX: remove forced height */
+      height: auto !important;
+	  word-wrap: break-word;
+    }
+    #book h2 {
+      text-align: center;
+      text-shadow: 0 0 8px #ffd700;
+      margin-bottom: 1rem;
+    }
+    #book p {
+      font-size: 1.2em;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+    }
+
+    /* --- Music Toggle Button --- */
+    #musicToggle {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(0,0,0,0.7);
+      color: #ffd700;
+      border: 2px solid #ffd700;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ffd700;
+      transition: background 0.3s ease;
+    }
+    #musicToggle:hover {
+      background: #ffd700;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Start Screen -->
+  <section id="startScreen">
+    <h1>Museo</h1>
+    <button id="startBtn">Start Reading</button>
+  </section>
+
+  <!-- Music -->
+  <audio id="bg-music" src="music/Museo.mp3" loop></audio>
+  <button id="musicToggle">⏸️ Pause Music</button>
+
+  <!-- Book Content -->
+  <section id="book" style="display:none;">
+    <h2> Chapter 1: The Wish </h2>
+    <p>There are 8 Billion people in the world.</p>
+	  <p>How will you find the one for you?.</p>
+	  <p>In the Phillipines Alone, there are more than 119 million people.</p>
+	  <p>What happens now?.</p>
+	  <p>But as they say, you don't have to look for one.</p>
+	  <p>If they are meant for you...</p>
+	  <p><em>Habang nasa hapag kainan, si Bonbon ay nag lalaro ng Cellphone at sila ay nag hahanda kumain</em></p>
+	  <p>Pamela:"Bonbon, ano bayan?. Tantanan mona nga yang kaka Cellphone mo, di mo na alam kung ano ang totoo sa internet eh" </p>
+	  <p>Kim: "Yan ksi"
+	  *Habang nakuha nang pagkain si Kim*</p>
+	  <p>Bonbon: "Huh?, flat daw yung mundo?"</p>
+	  <p>"Huh??" Sinabi nang lahat* </p>
+	  <p>Pamela: "Pwede ba kumain kana?, bago pa kumulo dugo ko sayo?. Puro ka Cellphone eh."</p>
+	  <p>Miguel: "Babe, Relax. Sige na. Kumain kana muna". </p>
+	  <p>Miguel: "Kim, kamusta pala application mo?</p>
+	  <p>Kim: "Hay nako Tito, kapagod na, eh hanggang ngayon wala padin tumatawag sakin"</p>
+	  <p>Miguel: "Sabi ko naman sayo eh, sa Garage kana muna eh. Samin kana muna para hindi ka ma stress kaka antay ng tawag"</p>
+	  <p>Pamela: "Bakit ba kase pinipilit mo si Kim na mag trabaho agad?. 4 years din yan nasubsob sa pag-aaral. Nak tulungan mona muna ako sa negosyo ko sa gourmet ha?" </p>
+	  <p>Kim: "Eh..? Kung kay papa na lang kaya ako mag trabaho?" </p>
+	  <p>Sandaling Tumahimik ang Pamilya pag tapos sabihin ni Kim ang kanyang saloobin o kagustuhan na mag trabaho sa Papa niya* </p>
+	  <p>Bonbon: "Init ng sabaw" "grabe"</p>
+	  <p>Miguel: "Ikaw kung san ka masaya, kung gusto mo ako na kakausap kay tony?" may pagka lungkot sa kanyang tono na parang gusto niyang humindi, ngunit mas pinili niya padin maging kalmado at masaya* </p>
+	  <p>Kim: "tutal malaki naman kita sa Real estate diba? maganda pang starter din po yun.. Diba Tito?"  </p>
+	  <p>Si Miguel ay tumango na lng na lulungkot*</p>
+      <p>kinamot ng bahagya ang buhok ni Pamela na parang stress at dali dali niyang kinuha ang Salad*</p>
+	  <p>Pamela: "Te-teka baka yung salad ko ma frozen"....</p>
+      <p>At masayang kumain ang pamilya ni Kim...</P>
+	  <p><em>Kumakain si Adie mag isa nang pumasok ang yaya niya at dinalhan siya ng Papayang hiniwa nang Yaya para sa kanya....</em>
+	  Mhmmmm. Ate Barns sabayan mo na'ko dali. Mag kaon ako dong, sabi ng yaya. Hoy dong ahh, itong papaya, ay dai tignan mo dong oh, oh ma mula-mula, naku! matamis yan, masarap yan!.
+	  Hayss Ay alam kona i-shake ko yan papaya, may kiwi pako tsaka dragon fruit dun sa ref. Gusto moba i-i blend ko?... Hahaha... naku! ikaw talaga alagain kapa rin... Love you Teh!. Bakit walang "I"?.
+	  Okay, lalagyan ko ng "I". But first, you should be my girlfriend. No! I'm Taken.... Hmmm, pero sige na nga I love you, mag kaon kana nga diyan, mag kaon kana hmmm...
+	  -Love you te. -Love you. -Love you teh. Hehhh!... </p> 
+	  <p><em>Gabing malamig, at masarap sa tengang mga kuliglig ang maririnig.. Habang Nasilip si Adie sa Telescop at pinag mamasdan ang Comet... Tumawag si Kim at sabay naman Nag ring ang cellphone ni Adie at
+	  masaya niya naman na sinagot ito..</em></p>	
+	  <p> Adie: Hello?! </p>
+	  <p> Kim: Na recieve mo text ko? </p>
+	  <p> Adie: Asan na po kayo?</p>
+	  <p> -Pinaliwanag ko naman sayo dati pa. Diba yun ang usapan natin?, kay Miguel ka muna. Try mo lang... -Dubai na anak, oh nakita mona yung comet?. -Yes pa. Sobrang ganda niya 
+	  at first night niya ngayon grabe halos parang hindi siya gumagalaw.. -Nag usap na rin kami ni Miguel, okay na lahat. -Pa... -Every 15 years lang yan lumilitaw, mag wish ka, bilis!.
+	  Ang sabi nila malas daw yan, pero di ako na niniwala. Blessing yan pra sa amin ng mama mo, malay mo bigyan ka niyan ng GF...-Ah, Hello, Pa?, Choppy po kayo..-Hello?, Pa?, Choppy ka..-About kay Miguel
+	  -Eh, pag-iisipan ko. -Wag mo na pag isipan. Please bebe?, Temporary lang naman?. Trust me on this give it six months. -four. -Five. Four and a half... Okay four and a half. Tawagan kona si Miguel ah...
+	  Pa, Labas ka may comet oh. Oh Okay sige, bye muna. Love you bebe..-Bye Nak. See you!. Love you -Love you, Pa...</p>
+	 <p><em>Tinitigan ni Kim ang comet at sadyang napaka ganda nito. habang tumatakbo ang oras. Pag sapit nang 12 sabay nag wish ang dalawa...</em></p>
+	 
+    <!-- The special trigger paragraph for music -->
+    <p id="musicTrigger" style="margin-top: 60px; font-weight:bold; font-size:1.3em; color:#ffd700;">
+      And as she stepped into the starlight... everything changed.
+    </p>
+
+    <p></p>
+	
+  <hr />
+<h2>📘 Chapter 2: Echoes of the Past</h2>
+<p>The hallway whispered secrets from another time...</p>
+<p>Continue your chapter content here. You can add as many paragraphs as needed...</p>
+
+  </section>
+  
+
+	
+	
+	
+  <script>
+    const music = document.getElementById("bg-music");
+    const toggleBtn = document.getElementById("musicToggle");
+    const startBtn = document.getElementById("startBtn");
+    const startScreen = document.getElementById("startScreen");
+    const book = document.getElementById("book");
+    const trigger = document.getElementById("musicTrigger");
+
+    let musicStarted = false;
+
+    // When clicking Start Reading
+    startBtn.addEventListener("click", () => {
+      startScreen.style.display = "none";
+      book.style.display = "block";
+
+      // Scroll smoothly to book top
+      book.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Listen for scroll to trigger music
+    window.addEventListener("scroll", () => {
+      if (!musicStarted) {
+        const rect = trigger.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7) {
+          music.play().catch(e => {
+            // Autoplay might be blocked until user interaction; ignored here since they clicked start
+          });
+          toggleBtn.style.display = "inline";
+          musicStarted = true;
+        }
+      }
+    });
+
+    // Music play/pause toggle
+    toggleBtn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        toggleBtn.textContent = "⏸️ Pause Music";
+      } else {
+        music.pause();
+        toggleBtn.textContent = "▶️ Play Music";
+      }
+    });
+  </script>
+
+</body>
+</html>
