@@ -3,12 +3,34 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neon Interactive Story - Blue</title>
 <style>
-:root{ --neon:#0099ff; --aqua:#33ccff; --bg:#0a0a0f; --fg:#f5f5f5; --muted:#aaaaaa }
-*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg);display:flex;flex-direction:column;height:100vh}
+
+ font-size: 16px; /* default */
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px; /* mas maliit pag phone */
+    padding: 10px;
+  }
+
+  #story {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
+:root { --neon:#0099ff; --aqua:#33ccff; --bg:#0a0a0f; --fg:#f5f5f5; --muted:#aaaaaa
+ }
+* {box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg);display:flex;flex-direction:column;height:100vh}
 header{padding:18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-h1{margin:0;color:var(--neon);text-shadow:0 0 8px var(--neon),0 0 20px var(--aqua)}
+h1 {margin:0;color:var(--neon);text-shadow:0 0 8px var(--neon),0 0 20px var(--aqua)}
 .controls{display:flex;align-items:center;gap:8px}
 button,select{background:var(--neon);color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;box-shadow:0 0 8px var(--neon)}
 #view{flex:1;overflow:auto;padding:18px;border-top:1px solid rgba(255,255,255,.03)}
@@ -33,7 +55,7 @@ button,select{background:var(--neon);color:#fff;border:none;padding:8px 12px;bor
 <main id="view" aria-live="polite"></main>
 <div class="footer">Theme: Blue neon • Progress auto-saved</div>
 
-<script src="script.js"></script>
+<script src="Samp.js"></script>
 <script>
 const view = document.getElementById('view');
 const prevBtn = document.getElementById('prev');
@@ -93,4 +115,3 @@ render(idx);
 </script>
 </body>
 </html>
-
